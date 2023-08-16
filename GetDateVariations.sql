@@ -1,0 +1,12 @@
+/**
+* David Chamberlain
+*
+*
+* 2022-11-25
+*/
+SELECT
+	GETDATE() "GETDATE" -- The Control "standard"                                = 2022-11-25 11:42:36.723
+	,DATEADD(DAY,DATEDIFF(DAY,0,GETDATE()),0) "GETDATE_1" -- SQL 2005+           = 2022-11-25 00:00:00.000
+	,CONVERT(DATETIME, DATEDIFF(DAY, 0, GETDATE())) "GETDATE_2" -- SQL 2005+     = 2022-11-25 00:00:00.000
+	,CONVERT(DATETIME, CAST(GETDATE()-6 AS DATE)) "GETDATE_3" -- SQL 2008+       = 2022-11-25 00:00:00.000
+	,CAST(GETDATE()-6 AS DATE) "GETDATE_4" -- SQL 2008+                          = 2022-11-25
